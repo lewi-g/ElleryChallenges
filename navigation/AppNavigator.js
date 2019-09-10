@@ -1,16 +1,15 @@
-import {createStackNavigator, createAppContainer} from 'react-navigation';
+import { createStackNavigator, createAppContainer } from 'react-navigation'
 
 import CreateChallenge from '../screens/CreateChallenge'
 import LoggedOut from '../screens/LoggedOut'
 import SignIn from '../screens/SignIn'
 
-
 const StackNavigator = createStackNavigator(
   {
     CreateChallenge,
-    LoggedOut, 
-    SignIn,
-  }, 
+    LoggedOut,
+    SignIn
+  },
   {
     initialRouteName: 'LoggedOut'
   }
