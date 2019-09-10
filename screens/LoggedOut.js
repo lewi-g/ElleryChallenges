@@ -1,71 +1,40 @@
 import React from 'react'
 
-import {
-  Button,
-  Image,
-  Platform,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View
-} from 'react-native'
+import { Button, ScrollView, StyleSheet, Text, View } from 'react-native'
 
 import Header from '../components/Header.js'
 
-export default class LoggedOut extends React.Component {
-  static navigationOptions = {
-    header: null
-  }
+function LoggedOut({ navigation }) {
+  return (
+    <View style={styles.container}>
+      <Header />
+      <ScrollView>
+        <Text style={styles.motto}>
+          Personal Challenge, Community Support and Accountability
+        </Text>
+        <Button
+          onPress={() => {
+            navigation.push('CreateChallenge')
+          }}
+          title="Let's get started"
+          color="#68a0cf"
+          accessibilityLabel="Start creating a challenge"
+        />
+        <Button
+          onPress={() => {
+            navigation.push('SignIn')
+          }}
+          title="sign in"
+          color="green"
+          accessibilityLabel="sign in"
+        />
+      </ScrollView>
+    </View>
+  )
+}
 
-  onPressCreateChallenge = () => {
-    console.log('createChallenge pressed')
-    this.props.navigation.push('CreateChallenge')
-    // this.props.navigation.dispatch(StackActions.reset({
-    //   index: 0,
-    //   actions: [
-    //     NavigationActions.navigate({ routeName: 'CreateChallenge' })
-    //   ],
-    // }))
-  }
-
-  onPressSignIn = () => {
-    this.props.navigation.push('SignIn')
-  }
-
-  onPressBack = () => {
-    this.props.navigation.pop()
-    // this.props.navigation.goBack();
-  }
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <Header />
-        <ScrollView>
-          <Text style={styles.motto}>
-            Personal Challenge, Community Support and Accountability
-          </Text>
-          <Button
-            onPress={() => {
-              this.onPressCreateChallenge()
-            }}
-            title="Let's get started"
-            color="#68a0cf"
-            accessibilityLabel="Start creating a challenge"
-          />
-          <Button
-            onPress={() => {
-              this.onPressSignIn()
-            }}
-            title="sign in"
-            color="green"
-            accessibilityLabel="sign in"
-          />
-        </ScrollView>
-      </View>
-    )
-  }
+LoggedOut.navigationOptions = {
+  header: null
 }
 
 const styles = StyleSheet.create({
@@ -81,3 +50,5 @@ const styles = StyleSheet.create({
     fontWeight: '200'
   }
 })
+
+export default LoggedOut
