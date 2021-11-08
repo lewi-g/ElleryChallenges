@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "apollo-datasource-mongodb": "^0.1.0",
-    "apollo-server": "^2.6.9",
+    "apollo-server": "^2.25.3",
     "apollo-server-testing": "^2.8.1",
     "dotenv": "^8.0.0",
     "graphql": "^14.2.1",
